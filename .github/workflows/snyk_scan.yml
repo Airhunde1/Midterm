@@ -1,0 +1,27 @@
+name: Snyk Security Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  snyk_scan:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    
+    - name: Install dependencies
+      run: npm install
+    
+    - name: Run Snyk security scan
+      env:
+        SNYK_TOKEN: ${{ secrets.672a03f9-e945-4a5e-afe4-498af59810b3 }} # Snyk authentication token stored in GitHub secrets
+      run: npx snyk test --all-projects

@@ -24,4 +24,4 @@ jobs:
     - name: Run Snyk security scan
       env:
         SNYK_TOKEN: ${{ secrets.672a03f9-e945-4a5e-afe4-498af59810b3 }} # Snyk authentication token stored in GitHub secrets
-      run: npx snyk test --all-projects #testing
+      run: npx snyk test --all-projects #testing12345
